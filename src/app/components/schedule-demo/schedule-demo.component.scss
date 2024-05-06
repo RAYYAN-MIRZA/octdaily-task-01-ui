@@ -1,0 +1,15 @@
+main{
+    display:flex;
+    justify-content: space-evenly;
+}
+h2{
+    text-align: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border: 2px solid grey;
+    padding: 1rem 3rem;
+    border-radius: 10%;
+}

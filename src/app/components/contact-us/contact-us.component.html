@@ -1,0 +1,70 @@
+<p>contact-us works!</p>
+<main>
+  <div class="msg-container">
+    <h1>You are just a single step away!</h1>
+  </div>
+  <form action="">
+    <h2>Contact Us</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Name:</mat-label>
+      <input
+        matInput
+        placeholder="Name"
+        type="text"
+        name="name"
+        placeholder="Name"
+        [formControl]="name"
+      />
+      @if (name.value === '') {
+        <mat-error>this field is required</mat-error>
+        }
+
+    </mat-form-field>
+
+    <div class="example-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="John@example.com"
+          [formControl]="email"
+          (blur)="updateErrorMessage()"
+          type="email"
+          name="email"          
+          required
+        />
+        @if (email.invalid) {
+        <mat-error>{{ errorMessage }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Zip:</mat-label>
+      <input        
+        matInput     
+        type="number"
+        placeholder="Zip code"
+        [formControl]="zip"
+      />
+      @if (zip.value === '') {
+        <mat-error>this field is required</mat-error>
+        }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Business Name:</mat-label>
+      <input
+        matInput
+        type="text"
+        name="business_name"
+        placeholder="Business Name"
+        [formControl]="businessName"
+      />
+      @if (businessName.value === '') {
+        <mat-error>this field is required</mat-error>
+        }
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="onSubmit()">Submit</button>
+  </form>
+</main>
