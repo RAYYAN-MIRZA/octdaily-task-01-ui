@@ -7,17 +7,17 @@ import { Observable, catchError, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class ContactUsService {
-  private backendUrl: string = 'http:localhost:8080/contact-us';
+  private backendUrl: string = 'https://localhost:44315/FormApi/ContactUs/';
   private fakeBackEnd:string='https://jsonplaceholder.typicode.com/posts/';
 
   constructor(private Http: HttpClient) {}
 
   postToBackend(formData: ContactUsInterface): Observable<ContactUsInterface> {
-    return this.Http.post<ContactUsInterface>(this.fakeBackEnd, formData).pipe(
+    return this.Http.post<ContactUsInterface>(this.backendUrl, formData).pipe(
       catchError((error)=>{
         console.error('error in postToBacked',error);
         return throwError(()=>error);
       })
-    );
+    );    
   }
 }

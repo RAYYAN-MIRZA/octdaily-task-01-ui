@@ -47,27 +47,28 @@ export class ContactUsComponent {
 
     console.log(
       'name== ',
-      this.name,
+      typeof this.name.value,
       ',',
       this.email,
       ',',
       this.businessName,
       ',',
-      this.zip
+      typeof(this.zip.value)
     );
     this.formData = {
-      name: this.name.value || '', //putting OR operator only because of typescript as formcontrol returns <stirng || null> while the interface only accepts strings
-      email: this.email.value || '',
-      zip: this.zip.value || '',
-      businessName: this.businessName.value || '',
+      Name: this.name.value || '', //putting OR operator only because of typescript as formcontrol returns <stirng || null> while the interface only accepts strings
+      Email: this.email.value || '',
+      Zip: this.zip.value?.toString() || '',
+      BusinessName: this.businessName.value || '',
     };
+
     this.service.postToBackend(this.formData).subscribe({
       next: (response) => {
         console.log('Response From BackEnd==>', response);
       },
-      error: (error) =>   {
+      error: (error) => {
         console.error('Error from backend:', error);
-        alert(error);
+        alert('error aya subsribel pr' + error);
       },
     });
     console.log(this.formData);

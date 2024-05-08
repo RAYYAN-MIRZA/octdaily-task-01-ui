@@ -29,8 +29,7 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class ScheduleDemoComponent {
   name = new FormControl('', Validators.required);
-  email = new FormControl('', [Validators.required, Validators.email]);
-  zip = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);  
   businessName = new FormControl('', Validators.required);
   errorMessage: string = '';
   scheduleDate = new FormControl(new Date(), Validators.required);
@@ -45,8 +44,7 @@ export class ScheduleDemoComponent {
 
   onSubmit(): void {
     // checking if some input field is empty
-    if (this.email.valid === false || this.email.value === '') return;
-    if (this.zip.value === '') return;
+    if (this.email.valid === false || this.email.value === '') return;    
     if (this.name.value === '') return;
     if (this.businessName.value === '') return;
     if (this.phoneNo.value === '') return;
@@ -66,11 +64,11 @@ export class ScheduleDemoComponent {
       }
     }
     this.formData = {
-      name: this.name.value || '',
-      email: this.email.value || '',
-      businessName: this.businessName.value || '',
-      phoneNo: this.phoneNo.value || '',
-      scheduleDate: inpDate,
+      Name: this.name.value || '',
+      Email: this.email.value || '',
+      BusinessName: this.businessName.value || '',
+      PhoneNo: this.phoneNo.value?.toString() || '', // converting to string because input type is number
+      ScheduleDate: inpDate,
     };
 
     console.log(this.formData);
@@ -96,3 +94,4 @@ export class ScheduleDemoComponent {
     }
   }
 }
+  

@@ -1,6 +1,6 @@
 export interface ContactUsInterface {
-  name: string;
-  email: string;
-  zip: string;
-  businessName: string;
+  Name: string;
+  Email: string;
+  Zip: string;
+  BusinessName: string;
 }

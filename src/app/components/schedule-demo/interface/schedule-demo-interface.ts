@@ -1,7 +1,7 @@
 export interface ScheduleDemoInterface {
-    name:string,
-    email:string,
-    businessName:string,
-    phoneNo:string;
-    scheduleDate:Date;
+    Name:string,
+    Email:string,
+    BusinessName:string,
+    PhoneNo:string;
+    ScheduleDate:Date;
 }
